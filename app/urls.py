@@ -1,4 +1,4 @@
-from ilovemydachshund import app, gallery
+from app import app, gallery
 
 url_rules = [
     ('/', gallery.Home.as_view('home')),

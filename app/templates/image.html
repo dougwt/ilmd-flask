@@ -1,5 +1,5 @@
 <div>
-    <a href="{{ image.permalink() }}">
+    <a href="{{ url_for('single', id=image.id) }}">
         <img src="/static/{{ image.id}}{{ image.filetype }}" width="640" height="478" alt="{{ image.name }}">
     </a>
     <p>Meet {{ image.name }}!</p>

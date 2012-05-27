@@ -4,6 +4,6 @@ import readline
 from pprint import pprint
 
 from flask import *
-from ilovemydachshund import *
+from app import *
 
 os.environ['PYTHONINSPECT'] = 'True'
