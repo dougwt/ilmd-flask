@@ -1,7 +1,5 @@
-from flask.ext.sqlalchemy import SQLAlchemy
 from flask import render_template, url_for
-
-db = SQLAlchemy()
+from ilovemydachshund import db
 
 
 class Category(db.Model):

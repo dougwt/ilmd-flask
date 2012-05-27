@@ -1,6 +1,6 @@
 from flask.views import MethodView
 from flask import render_template, url_for, redirect
-import models
+from ilovemydachshund import models
 
 
 class Home(MethodView):
