@@ -1,7 +1,10 @@
 <div>
     <a href="{{ url_for('single', id=image.id) }}">
-        <img src="/static/{{ image.id}}{{ image.filetype }}" width="640" height="478" alt="{{ image.name }}">
+        <img src="/static/gallery/{{ image.id}}{{ image.filetype }}" width="640" height="478" alt="{{ image.name }}">
     </a>
     <p>Meet {{ image.name }}!</p>
     <p>{{ image.caption }}</p>
+    {% if image.angelpup %}
+        <p>Angelpup</p>
+    {% endif %}
 </div>

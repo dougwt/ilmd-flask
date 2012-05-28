@@ -1,6 +1,8 @@
 from flask import render_template, url_for
 from app import db
+# from gallery import resize_image
 import datetime
+from PIL import Image as PILimage
 
 
 class Category(db.Model):
@@ -41,17 +43,13 @@ class Image(db.Model):
     def __repr__(self):
         return '<Image %s: %r>' % (self.id, self.name)
 
-    # def permalink(self):
-    #     return url_for('single', id=self.id)
-
-    def move_up(self):
-        pass
-
-    def move_down(self):
-        pass
-
-    # class Meta:
-    #     ordering = ['-date_added']
+    def generate_thumbnail(self, path='app/static/gallery/', width=128, height=128):
+        original_filepath = path + str(self.id) + self.filetype
+        new_filepath = path + str(self.id) + '.thumb' + self.filetype
+        img = PILimage.open(original_filepath)
+        # resize_image(img)
+        img.thumbnail((width, height), PILimage.ANTIALIAS)
+        img.save(new_filepath)
 
 
 class ImageDemo():

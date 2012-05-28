@@ -1,2 +1,3 @@
 config.py
 db_repository/*
+app/static/gallery*
