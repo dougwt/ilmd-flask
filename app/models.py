@@ -7,35 +7,30 @@ from PIL import Image as PILimage
 
 class Category(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(20))
-    hidden = db.Column(db.Boolean)
+    name = db.Column(db.String(20), unique=True, nullable=False)
+    hidden = db.Column(db.Boolean, default=False)
     images = db.relationship('Image', backref='category', lazy='dynamic')
-
-    def __init__(self, name=None, hidden=False):
-        self.name = name
-        self.hidden = hidden
 
     def __repr__(self):
         return '<Category %s: %r' % (self.id, self.name)
 
 
-class Image(db.Model):
+class Comment(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(20))
-    caption = db.Column(db.String(300))
-    angelpup = db.Column(db.Boolean)
-    filetype = db.Column(db.Enum('.jpg', '.png'))
-    category_id = db.Column(db.Integer, db.ForeignKey('category.id'))
-    hidden = db.Column(db.Boolean)
+    text = db.Column(db.String(300), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     date_added = db.Column(db.DateTime, default=datetime.datetime.utcnow)
 
-    def __init__(self, name, caption, angelpup=False, filetype='.jpg', category_id=1, hidden=False):
-        self.name = name
-        self.caption = caption
-        self.angelpup = angelpup
-        self.filetype = filetype
-        self.category_id = category_id
-        self.hidden = hidden
+
+class Image(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    description = db.Column(db.String(300))
+    filetype = db.Column(db.Enum('.jpg', '.png'))
+    category_id = db.Column(db.Integer, db.ForeignKey('category.id'))
+    hidden = db.Column(db.Boolean, default=True)
+    date_added = db.Column(db.DateTime, default=datetime.datetime.utcnow)
+    likes = db.relationship('Like', backref='image', lazy='dynamic')
+    tags = db.relationship('Tag', backref='image', lazy='dynamic')
 
     def __unicode__(self):
         return render_template('image.html', image=self)
@@ -65,3 +60,35 @@ class ImageDemo():
 
     def permalink(self):
         return url_for('single', id=self.id)
+
+
+class Like(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    image_id = db.Column(db.Integer, db.ForeignKey('image.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+
+
+class Pet(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(20), nullable=False)
+    description = db.Column(db.String(300))
+    angelpup = db.Column(db.Boolean, default=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    tags = db.relationship('Tag', backref='pet', lazy='dynamic')
+
+
+class Tag(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    pet_id = db.Column(db.Integer, db.ForeignKey('pet.id'))
+    image_id = db.Column(db.Integer, db.ForeignKey('image.id'))
+
+
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(20), index=True, unique=True)
+    email = db.Column(db.String(120), index=True, unique=True)
+    description = db.Column(db.String(300))
+    admin = db.Column(db.Boolean, default=False)
+    comments = db.relationship('Comment', backref='user', lazy='dynamic')
+    likes = db.relationship('Like', backref='user', lazy='dynamic')
+    pets = db.relationship('Pet', backref='user', lazy='dynamic')
