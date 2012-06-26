@@ -11,6 +11,10 @@ class Category(db.Model):
     hidden = db.Column(db.Boolean, default=False)
     images = db.relationship('Image', backref='category', lazy='dynamic')
 
+    def __init__(self, name, hidden=False):
+        self.name = name
+        self.hidden = hidden
+
     def __repr__(self):
         return '<Category %s: %r' % (self.id, self.name)
 
@@ -19,7 +23,12 @@ class Comment(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     text = db.Column(db.String(300), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    date_added = db.Column(db.DateTime, default=datetime.datetime.utcnow)
+    date_added = db.Column(db.DateTime)
+
+    def __init__(self, text, user_id):
+        self.text = text
+        self.user_id = user_id
+        self.date_added = datetime.datetime.utcnow()
 
 
 class Image(db.Model):
@@ -28,9 +37,16 @@ class Image(db.Model):
     filetype = db.Column(db.Enum('.jpg', '.png'))
     category_id = db.Column(db.Integer, db.ForeignKey('category.id'))
     hidden = db.Column(db.Boolean, default=True)
-    date_added = db.Column(db.DateTime, default=datetime.datetime.utcnow)
+    date_added = db.Column(db.DateTime)
     likes = db.relationship('Like', backref='image', lazy='dynamic')
     tags = db.relationship('Tag', backref='image', lazy='dynamic')
+
+    def __init__(self, description, filetype, category_id, hidden=True):
+        self.description = description
+        self.filetype = filetype
+        self.category_id = category_id
+        self.hidden = hidden
+        self.date_added = datetime.datetime.utcnow()
 
     def __unicode__(self):
         return render_template('image.html', image=self)
@@ -67,6 +83,10 @@ class Like(db.Model):
     image_id = db.Column(db.Integer, db.ForeignKey('image.id'))
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
+    def __init__(self, image_id, user_id):
+        self.image_id = image_id
+        self.user_id = user_id
+
 
 class Pet(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -76,11 +96,21 @@ class Pet(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     tags = db.relationship('Tag', backref='pet', lazy='dynamic')
 
+    def __init__(self, name, description, angelpup, user_id):
+        self.name = name
+        self.description = description
+        self.angelpup = angelpup
+        self.user_id = user_id
+
 
 class Tag(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     pet_id = db.Column(db.Integer, db.ForeignKey('pet.id'))
     image_id = db.Column(db.Integer, db.ForeignKey('image.id'))
+
+    def __init__(self, pet_id, image_id):
+        self.pet_id = pet_id
+        self.image_id = image_id
 
 
 class User(db.Model):
@@ -89,6 +119,14 @@ class User(db.Model):
     email = db.Column(db.String(120), index=True, unique=True)
     description = db.Column(db.String(300))
     admin = db.Column(db.Boolean, default=False)
+    date_added = db.Column(db.DateTime)
     comments = db.relationship('Comment', backref='user', lazy='dynamic')
     likes = db.relationship('Like', backref='user', lazy='dynamic')
     pets = db.relationship('Pet', backref='user', lazy='dynamic')
+
+    def __init__(self, username, email, description, admin=False):
+        self.username = username
+        self.email = email
+        self.description = description
+        self.admin = admin
+        self.date_added = datetime.datetime.utcnow()
