@@ -115,7 +115,8 @@ class Tag(db.Model):
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(20), index=True, unique=True)
+    facebook_id = db.Column(db.Integer, index=True, unique=True)
+    name = db.Column(db.String(20))
     email = db.Column(db.String(120), index=True, unique=True)
     description = db.Column(db.String(300))
     admin = db.Column(db.Boolean, default=False)
@@ -124,8 +125,9 @@ class User(db.Model):
     likes = db.relationship('Like', backref='user', lazy='dynamic')
     pets = db.relationship('Pet', backref='user', lazy='dynamic')
 
-    def __init__(self, username, email, description, admin=False):
-        self.username = username
+    def __init__(self, facebook_id, name, email, description, admin=False):
+        self.facebook_id = facebook_id
+        self.name = name
         self.email = email
         self.description = description
         self.admin = admin

@@ -1,8 +1,10 @@
-from app import app, gallery
+from app import app, gallery, login
 
 url_rules = [
     ('/', gallery.Home.as_view('home')),
     ('/<int:id>/', gallery.Single.as_view('single')),
+    ('/login', login.login),
+    ('/login/authorized', login.facebook_authorized),
 ]
 
 for (rule, func) in url_rules:
