@@ -7,7 +7,7 @@ class Home(View):
     def get(self):
         title = "Home"
         images = models.Image.query.all()
-        return render_template('home.html', title=title, images=images)
+        return render_template('home.html', title=title, images=images, current_user=self.current_user())
 
 
 class Single(View):

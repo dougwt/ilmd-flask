@@ -8,6 +8,12 @@ def login():
         _external=True))
 
 
+def logout():
+    session.pop('facebook_id', None)
+    session.pop('oauth_token', None)
+    return redirect(url_for('home'))
+
+
 @facebook.authorized_handler
 def facebook_authorized(resp):
     if resp is None:
@@ -17,12 +23,13 @@ def facebook_authorized(resp):
         )
     session['oauth_token'] = (resp['access_token'], '')
     me = facebook.get('/me')
-    flash('You were signed in as %s' % me.data['name'])
+    flash('Welcome back, %s' % me.data['name'])
     next = request.args.get('next')
     store_user(me.data, resp['access_token'])
-    # return redirect(next)
-    return "Logged in as id='%s' name='%s' email='%s' redirect='%s'" % \
-        (me.data['id'], me.data['name'], me.data['email'], next)
+    session['facebook_id'] = me.data['id']
+    return redirect(next)
+    # return "Logged in as id='%s' sess_id='%s' name='%s' email='%s' redirect='%s'" % \
+    #     (me.data['id'], session['facebook_id'], me.data['name'], me.data['email'], next)
 
 
 @facebook.tokengetter
@@ -35,7 +42,7 @@ def store_user(profile, access_token):
     name = profile['name']
     email = profile['email']
     # user = models.User.get_by_key_name(cookie["uid"])
-    user = models.User.query.filter_by(facebook_id=facebook_id).first()
+    user = models.User.get_facebook_id(facebook_id)
     if user:
         user.name = name
         user.email = email

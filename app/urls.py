@@ -5,6 +5,7 @@ url_rules = [
     ('/<int:id>/', gallery.Single.as_view('single')),
     ('/login', login.login),
     ('/login/authorized', login.facebook_authorized),
+    ('/logout', login.logout),
 ]
 
 for (rule, func) in url_rules:

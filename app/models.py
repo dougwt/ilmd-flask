@@ -141,3 +141,7 @@ class User(db.Model):
         self.access_token = access_token
         self.admin = admin
         self.date_added = datetime.datetime.utcnow()
+
+    @staticmethod
+    def get_facebook_id(facebook_id):
+        return User.query.filter_by(facebook_id=facebook_id).first()
