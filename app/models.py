@@ -119,16 +119,25 @@ class User(db.Model):
     name = db.Column(db.String(20))
     email = db.Column(db.String(120), index=True, unique=True)
     description = db.Column(db.String(300))
+    access_token = db.Column(db.String(300), unique=True, nullable=False)  # fb OAUTH access token
     admin = db.Column(db.Boolean, default=False)
     date_added = db.Column(db.DateTime)
     comments = db.relationship('Comment', backref='user', lazy='dynamic')
     likes = db.relationship('Like', backref='user', lazy='dynamic')
     pets = db.relationship('Pet', backref='user', lazy='dynamic')
 
-    def __init__(self, facebook_id, name, email, description, admin=False):
+    # id = db.StringProperty(required=True) #facebook user-id
+    # created = db.DateTimeProperty(auto_now_add=True)
+    # updated = db.DateTimeProperty(auto_now=True)
+    # name = db.StringProperty(required=True)
+    # profile_url = db.StringProperty(required=True)
+    # access_token = db.StringProperty(required=True)  #fb OAUTH access token
+
+    def __init__(self, facebook_id, name, email, description, access_token, admin=False):
         self.facebook_id = facebook_id
         self.name = name
         self.email = email
         self.description = description
+        self.access_token = access_token
         self.admin = admin
         self.date_added = datetime.datetime.utcnow()

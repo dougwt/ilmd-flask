@@ -1,17 +1,16 @@
-from flask.views import MethodView
 from flask import render_template, url_for, redirect
-from app import models
+from app import models, View
 from PIL import Image as PILimage
 
 
-class Home(MethodView):
+class Home(View):
     def get(self):
         title = "Home"
         images = models.Image.query.all()
         return render_template('home.html', title=title, images=images)
 
 
-class Single(MethodView):
+class Single(View):
     def get(self, id):
         image = models.Image.query.get(int(id))
         if not image:

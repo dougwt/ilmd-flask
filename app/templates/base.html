@@ -7,36 +7,12 @@
     {% endblock %}
 </head>
 <body>
-    <div id="fb-root"></div>
-    <script>
-        window.fbAsyncInit = function() {
-        FB.init({
-            appId      : '432011630162808', // App ID
-            channelUrl : '//WWW.YOUR_DOMAIN.COM/channel.html', // Channel File
-            status     : true, // check login status
-            cookie     : true, // enable cookies to allow the server to access the session
-            xfbml      : true  // parse XFBML
-        });
-        };
-        // Load the SDK Asynchronously
-        (function(d){
-            var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
-            if (d.getElementById(id)) {return;}
-            js = d.createElement('script'); js.id = id; js.async = true;
-            js.src = "//connect.facebook.net/en_US/all.js";
-            ref.parentNode.insertBefore(js, ref);
-        }(document));
-    </script>
-    <!-- <div class="fb-login-button" scope="email">Login with Facebook</div> -->
-    <!--<fb:login-button
-        registration-url="https://developers.facebook.com/docs/user_registration"
-        on-login="console.log(arguments)"
-        />-->
-    <div
-        class="fb-registration"
-        data-fields="[{'name':'name'}, {'name':'email'}]"
-        data-redirect-uri="http://localhost:5000"
-    </div>
+    {% if current_user %}
+        <div>{{ current_user }}</div>
+    {% else %}
+        <div><a href="/login">Please login</a></div>
+    {% endif %}
+
     {% block content %}
     {% endblock %}
 </body>
