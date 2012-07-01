@@ -7403,9 +7403,9 @@ body {
 }
 .ashas-fur-bg {
   background-image: url('../img/ashas-fur-bg2.jpg');
+  background-color: #000000;
   background-repeat: no-repeat;
   height: 260px;
-  background-position: 20px 0;
 }
 hr {
   border-top: 0;
@@ -7435,4 +7435,47 @@ a.btn {
 
   background-color: #3c313e;
   margin-bottom: 0;
+}
+.breadcrumb {
+  background-color: #2c2c2c;
+  background-image: -moz-linear-gradient(top, #333333, #222222);
+  background-image: -ms-linear-gradient(top, #333333, #222222);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#333333), to(#222222));
+  background-image: -webkit-linear-gradient(top, #333333, #222222);
+  background-image: -o-linear-gradient(top, #333333, #222222);
+  background-image: linear-gradient(top, #333333, #222222);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#333333', endColorstr='#222222', GradientType=0);
+  background-color: #2c2c2c;
+  background-image: -moz-linear-gradient(top, #333333, #222222);
+  background-image: -ms-linear-gradient(top, #333333, #222222);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#333333), to(#222222));
+  background-image: -webkit-linear-gradient(top, #333333, #222222);
+  background-image: -o-linear-gradient(top, #333333, #222222);
+  background-image: linear-gradient(top, #333333, #222222);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#333333', endColorstr='#222222', GradientType=0);
+  border: 0px solid #222222;
+  -webkit-box-shadow: inset 0 1px 0 #222222;
+  -moz-box-shadow: inset 0 1px 0 #222222;
+  box-shadow: inset 0 1px 0 #222222;
+  -webkit-box-shadow: inset 0 1px 0 #222222;
+  -moz-box-shadow: inset 0 1px 0 #222222;
+  box-shadow: inset 0 1px 0 #222222;
+  margin-top: 0;
+}
+.breadcrumb a,
+.breadcrumb a:hover,
+.breadcrumb a:active,
+.breadcrumb a:visited {
+  color: #eeeeee;
+}
+.breadcrumb li {
+  text-shadow: 0 1px 0 #000000;
+}
+.breadcrumb .divider {
+  color: #999999;
+}
+.breadcrumb .active a {
+  color: #333333;
 }

@@ -17,212 +17,301 @@
 	<script src="js/libs/modernizr-2.5.3-respond-1.1.0.min.js"></script>
 </head>
 <body>
-    <!-- Header -->
-    <div class="container header hidden-phone">
-      <div class="row ashas-fur-bg">
-        <!-- <div class="span12">
-          <div class="container">
-            <div class="span8 offset1">
-              <h1>You love your dog.</h1>
-              <h2>So do we.</h2>
-            </div>
+  <!-- Navbar -->
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a href="#" class="brand">ILMD</a>
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <!-- <a class="brand" href="#">Project name</a> -->
+        <div class="nav-collapse">
+          <ul class="nav">
+            <li class="active">
+              <a href="#">Home</a>
+            </li>
+            <li class="dropdown">
+              <a href="#"
+                    class="dropdown-toggle"
+                    data-toggle="dropdown">
+                    Gallery
+                    <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li class="nav-header">Sorted by...</li>
+                <li class="active"><a href="#"><i class="icon-list-alt"></i> Category</a></li>
+                <li><a href="#"><i class="icon-calendar"></i> Recent</a></li>
+                <li><a href="#"><i class="icon-thumbs-up"></i> Likes</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Random Image</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+            <!-- <form class="navbar-search pull-left">
+              <input type="text" class="search-query" placeholder="Search">
+            </form> -->
+            <!-- <li class="divider-vertical"></li> -->
+          </ul>
+
+          <ul class="nav pull-right">
+            <!-- <li><p class="navbar-text">Welcome back, Doug</p></li> -->
+            <li class="divider-vertical"></li>
+            <li class="dropdown">
+              <a href="#"
+                    class="dropdown-toggle"
+                    data-toggle="dropdown">
+                    <span class="badge badge-important">3</span>&nbsp; Doug
+                    <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="#"><i class="icon-wrench"></i> Admin Panel</a></li>
+                <li class="divider"></li>
+                <li><a href="#"><i class="icon-user"></i> My Profile</a></li>
+                <li><a href="#"><i class="icon-cog"></i> My Settings</a></li>
+                <li><a href="#"><i class="icon-eject"></i> Logout</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+  </div><!-- navbar -->
+
+  <!-- Header -->
+  <div class="container header">
+    <div class="row">
+      <div class="span12 ashas-fur-bg">
+        <!-- <div class="container">
+          <div class="span8 offset1">
+            <h1>You love your dog.</h1>
+            <h2>So do we.</h2>
           </div>
-        </div> -->
+        </div>
+      </div> -->
+    </div>
+  </div>
+
+  <div class="container">
+
+    <!-- Breadcrumb -->
+    <ul class="breadcrumb breadcrumb-nav">
+      <li>
+        <a href="#">Home</a> <span class="divider">/</span>
+      </li>
+      <li>
+        <a href="#">Gallery</a> <span class="divider">/</span>
+      </li>
+      <li class="active">Recent</li>
+    </ul>
+
+    <!-- Example alert -->
+    <!-- <div class="alert alert-success">
+      <button class="close" data-dismiss="alert">×</button>
+      <strong>Success!</strong> Best check yo self, you're not looking too good.
+    </div> -->
+
+    <!-- Example page header -->
+    <div class="page-header">
+      <h1>Example page header</h1>
+    </div>
+
+    <!-- Example row of columns -->
+    <div class="row">
+      <div class="span8">
+        <h2>Heading</h2>
+          <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Etiam porta sem malesuada magna mollis euismod. Etiam porta sem malesuada magna mollis euismod. Etiam porta sem malesuada magna mollis euismod. Donec id elit non mi porta gravida at eget metus. Donec ullamcorper nulla non metus <a href="#">auctor fringilla</a>.</p>
+
+          <p>Etiam porta sem malesuada magna mollis euismod. Curabitur blandit tempus porttitor. Cras mattis consectetur purus sit amet fermentum. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui.</p>
+      </div>
+      <div class="span4">
+        <div class="well">
+          <h3>Heading</h3>
+          <p>Vestibulum id ligula porta felis euismod semper. Donec id elit non mi porta gravida at eget metus. Cum sociis natoque penatibus et magnis dis parturient montes, <a href="#">nascetur ridiculus mus</a>.</p>
+        </div>
       </div>
     </div>
 
-    <div class="container">
+    <hr>
 
-      <div class="navbar">
-        <div class="navbar-inner">
-          <div class="container">
-            <!-- <a href="#" class="brand">ILMD</a> -->
-            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
+    <!-- Example gallery images -->
+    <div class="row gallery-header">
+      <div class="span12">
+        <h2>Latest Images</h2>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="span12">
+        <ul class="thumbnails">
+
+          <li class="span2">
+            <a href="#" class="thumbnail">
+              <img src="http://placehold.it/180x180" alt="">
             </a>
-            <!-- <a class="brand" href="#">Project name</a> -->
-            <div class="nav-collapse">
-              <ul class="nav">
-                <li class="active">
-                  <a href="#">Home</a>
-                </li>
-                <li class="dropdown">
-                  <a href="#"
-                        class="dropdown-toggle"
-                        data-toggle="dropdown">
-                        Gallery
-                        <b class="caret"></b>
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li class="nav-header">Sorted by...</li>
-                    <li class="active"><a href="#"><i class="icon-list-alt"></i> Category</a></li>
-                    <li><a href="#"><i class="icon-calendar"></i> Recent</a></li>
-                    <li><a href="#"><i class="icon-thumbs-up"></i> Likes</a></li>
-                  </ul>
-                </li>
-                <li><a href="#">Random Image</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-                <!-- <form class="navbar-search pull-left">
-                  <input type="text" class="search-query" placeholder="Search">
-                </form> -->
-                <!-- <li class="divider-vertical"></li> -->
-              </ul>
+          </li>
 
-              <ul class="nav pull-right">
-                <!-- <li><p class="navbar-text">Welcome back, Doug</p></li> -->
-                <li class="divider-vertical"></li>
-                <li class="dropdown">
-                  <a href="#"
-                        class="dropdown-toggle"
-                        data-toggle="dropdown">
-                        <span class="badge badge-important">3</span>&nbsp; Doug
-                        <b class="caret"></b>
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li><a href="#"><i class="icon-wrench"></i> Admin Panel</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#"><i class="icon-user"></i> My Profile</a></li>
-                    <li><a href="#"><i class="icon-cog"></i> My Settings</a></li>
-                    <li><a href="#"><i class="icon-eject"></i> Logout</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </div><!--/.nav-collapse -->
-          </div>
-        </div>
+          <li class="span2">
+            <a href="#" class="thumbnail">
+              <img src="http://placehold.it/180x180" alt="">
+            </a>
+          </li>
+
+          <li class="span2">
+            <a href="#" class="thumbnail">
+              <img src="http://placehold.it/180x180" alt="">
+            </a>
+          </li>
+
+          <li class="span2">
+            <a href="#" class="thumbnail">
+              <img src="http://placehold.it/180x180" alt="">
+            </a>
+          </li>
+
+          <li class="span2">
+            <a href="#" class="thumbnail">
+              <img src="http://placehold.it/180x180" alt="">
+            </a>
+          </li>
+
+          <li class="span2">
+            <a href="#" class="thumbnail">
+              <img src="http://placehold.it/180x180" alt="">
+            </a>
+          </li>
+
+          <li class="span2">
+            <a href="#" class="thumbnail">
+              <img src="http://placehold.it/180x180" alt="">
+            </a>
+          </li>
+
+          <li class="span2">
+            <a href="#" class="thumbnail">
+              <img src="http://placehold.it/180x180" alt="">
+            </a>
+          </li>
+
+          <li class="span2">
+            <a href="#" class="thumbnail">
+              <img src="http://placehold.it/180x180" alt="">
+            </a>
+          </li>
+
+          <li class="span2">
+            <a href="#" class="thumbnail">
+              <img src="http://placehold.it/180x180" alt="">
+            </a>
+          </li>
+
+          <li class="span2">
+            <a href="#" class="thumbnail">
+              <img src="http://placehold.it/180x180" alt="">
+            </a>
+          </li>
+
+          <li class="span2">
+            <a href="#" class="thumbnail">
+              <img src="http://placehold.it/180x180" alt="">
+            </a>
+          </li>
+
+          <!-- second set of image thumbnails -->
+
+                      <li class="span2">
+            <a href="#" class="thumbnail">
+              <img src="http://placehold.it/180x180" alt="">
+            </a>
+          </li>
+
+          <li class="span2">
+            <a href="#" class="thumbnail">
+              <img src="http://placehold.it/180x180" alt="">
+            </a>
+          </li>
+
+          <li class="span2">
+            <a href="#" class="thumbnail">
+              <img src="http://placehold.it/180x180" alt="">
+            </a>
+          </li>
+
+          <li class="span2">
+            <a href="#" class="thumbnail">
+              <img src="http://placehold.it/180x180" alt="">
+            </a>
+          </li>
+
+          <li class="span2">
+            <a href="#" class="thumbnail">
+              <img src="http://placehold.it/180x180" alt="">
+            </a>
+          </li>
+
+          <li class="span2">
+            <a href="#" class="thumbnail">
+              <img src="http://placehold.it/180x180" alt="">
+            </a>
+          </li>
+
+          <li class="span2">
+            <a href="#" class="thumbnail">
+              <img src="http://placehold.it/180x180" alt="">
+            </a>
+          </li>
+
+          <li class="span2">
+            <a href="#" class="thumbnail">
+              <img src="http://placehold.it/180x180" alt="">
+            </a>
+          </li>
+
+          <li class="span2">
+            <a href="#" class="thumbnail">
+              <img src="http://placehold.it/180x180" alt="">
+            </a>
+          </li>
+
+          <li class="span2">
+            <a href="#" class="thumbnail">
+              <img src="http://placehold.it/180x180" alt="">
+            </a>
+          </li>
+
+          <li class="span2">
+            <a href="#" class="thumbnail">
+              <img src="http://placehold.it/180x180" alt="">
+            </a>
+          </li>
+
+          <li class="span2">
+            <a href="#" class="thumbnail">
+              <img src="http://placehold.it/180x180" alt="">
+            </a>
+          </li>
+
+          <!-- end second set of thumbnails -->
+
+        </ul>
       </div>
+    </div>
 
-      <!-- <div class="alert alert-success">
-        <button class="close" data-dismiss="alert">×</button>
-        <strong>Success!</strong> Best check yo self, you're not looking too good.
-      </div> -->
-
-      <!-- Example page header -->
-      <div class="page-header">
-        <h1>Example page header</h1>
+    <div class="row">
+      <div class="span3 offset9">
+        <a href="#" class="btn btn-large pull-right">Show me more &raquo;</a>
       </div>
+    </div>
 
-      <!-- Example row of columns -->
-      <div class="row">
-        <div class="span8">
-          <h2>Heading</h2>
-            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Etiam porta sem malesuada magna mollis euismod. Etiam porta sem malesuada magna mollis euismod. Etiam porta sem malesuada magna mollis euismod. Donec id elit non mi porta gravida at eget metus. Donec ullamcorper nulla non metus auctor fringilla.</p>
+    <hr>
 
-            <p>Etiam porta sem malesuada magna mollis euismod. Curabitur blandit tempus porttitor. Cras mattis consectetur purus sit amet fermentum. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui.</p>
-        </div>
-        <div class="span4">
-          <div class="well">
-            <h3>Heading</h3>
-            <p>Vestibulum id ligula porta felis euismod semper. Donec id elit non mi porta gravida at eget metus. Cum sociis natoque penatibus et magnis dis parturient montes, <a href="#">nascetur ridiculus mus</a>.</p>
-          </div>
-        </div>
-      </div>
+    <footer>
+      <p>&copy; Company 2012</p>
+    </footer>
 
-      <hr>
-
-      <!-- Example gallery images -->
-      <div class="row gallery-header">
-        <div class="span12">
-          <h2>Latest Images</h2>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="span12">
-          <ul class="thumbnails">
-
-            <li class="span2">
-              <a href="#" class="thumbnail">
-                <img src="http://placehold.it/180x180" alt="">
-              </a>
-            </li>
-
-            <li class="span2">
-              <a href="#" class="thumbnail">
-                <img src="http://placehold.it/180x180" alt="">
-              </a>
-            </li>
-
-            <li class="span2">
-              <a href="#" class="thumbnail">
-                <img src="http://placehold.it/180x180" alt="">
-              </a>
-            </li>
-
-            <li class="span2">
-              <a href="#" class="thumbnail">
-                <img src="http://placehold.it/180x180" alt="">
-              </a>
-            </li>
-
-            <li class="span2">
-              <a href="#" class="thumbnail">
-                <img src="http://placehold.it/180x180" alt="">
-              </a>
-            </li>
-
-            <li class="span2">
-              <a href="#" class="thumbnail">
-                <img src="http://placehold.it/180x180" alt="">
-              </a>
-            </li>
-
-            <li class="span2">
-              <a href="#" class="thumbnail">
-                <img src="http://placehold.it/180x180" alt="">
-              </a>
-            </li>
-
-            <li class="span2">
-              <a href="#" class="thumbnail">
-                <img src="http://placehold.it/180x180" alt="">
-              </a>
-            </li>
-
-            <li class="span2">
-              <a href="#" class="thumbnail">
-                <img src="http://placehold.it/180x180" alt="">
-              </a>
-            </li>
-
-            <li class="span2">
-              <a href="#" class="thumbnail">
-                <img src="http://placehold.it/180x180" alt="">
-              </a>
-            </li>
-
-            <li class="span2">
-              <a href="#" class="thumbnail">
-                <img src="http://placehold.it/180x180" alt="">
-              </a>
-            </li>
-
-            <li class="span2">
-              <a href="#" class="thumbnail">
-                <img src="http://placehold.it/180x180" alt="">
-              </a>
-            </li>
-
-          </ul>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="span3 offset9">
-          <a href="#" class="btn btn-large btn-warning pull-right">Show me more &raquo;</a>
-        </div>
-      </div>
-
-      <hr>
-
-      <footer>
-        <p>&copy; Company 2012</p>
-      </footer>
-
-    </div> <!-- /container -->
+  </div> <!-- /container -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.2.min.js"><\/script>')</script>
 
