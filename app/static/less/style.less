@@ -1,0 +1,160 @@
+@import "bootstrap/bootstrap.less";
+
+body {
+  // padding-top: 60px;
+  padding-bottom: 40px;
+}
+
+@import "bootstrap/responsive.less";
+
+/* ===== Primary Styles ========================================================
+   Author:
+   ========================================================================== */
+
+@base: #4c3e4f;
+@darken1: darken(@base, 5%);
+@darken2: darken(@base, 10%);
+@lighten1: lighten(@base, 15%);
+@lighten2: lighten(@base, 30%);
+
+@accent: #faa834;
+@accent: #b194a1;
+@accent: #ba839f;
+
+@bodyBackground: @base;
+@textColor: #eee;
+@linkColor: @accent;
+@linkColorHover: darken(@linkColor, 15%);
+@dropdownLinkBackgroundHover: #9b7ea1;
+@dropdownLinkBackgroundHover: @linkColor;
+
+
+// ------
+// HEADER
+// ------
+
+body {
+    background-image: url('/static/img/header-bg-long.gif');
+    background-repeat: repeat-x;
+    // background-attachment: fixed;
+}
+
+.header-bg {
+    height: 240px;
+    background-image: url('/static/img/header-bg.gif');
+}
+
+.header {
+    height: 260px;
+}
+
+.ashas-fur-bg {
+    background-image: url('/static/img/ashas-fur-bg2.jpg');
+    background-color: @black;
+    background-repeat: no-repeat;
+    height: 260px;
+    // background-position: 20px 0;
+}
+
+
+// ---------------
+// HORIZONTAL RULE
+// ---------------
+
+@ruleColor: @darken1;
+
+hr{
+    border-top: 0;
+    border-bottom: 1px solid @ruleColor;
+}
+
+.page-header {
+    border-bottom: 1px solid @ruleColor;
+}
+
+
+// -------
+// BUTTONS
+// -------
+
+a.btn {
+    color: @darken1;
+}
+
+// @btnBackground: lighten(@linkColor, 15%);
+// @btnBackgroundHighlight: @linkColor;
+
+
+// ------------------
+// GALLERY THUMBNAILS
+// ------------------
+
+.thumbnails a {
+    border-color: #8d7393;
+    /*border-color: #FAA834;*/
+}
+
+.thumbnails a:hover {
+    border-color: #fff;
+    /*border-color: #FAA834;*/
+}
+
+.gallery-header {
+    margin-bottom: 0.8em;
+}
+
+.well {
+    /*color: black;*/
+    background-color: @darken1;
+    margin-bottom: 0;
+}
+
+
+// -----------
+// BREADCRUMBS
+// -----------
+
+.breadcrumb {
+
+    a,
+    a:hover,
+    a:active,
+    a:visited {
+        color: @textColor;
+    }
+
+    #gradient > .vertical(@grayDark, @grayDarker);
+        border: 0px solid @grayDarker;
+    .box-shadow(inset 0 1px 0 @grayDarker);
+    li {
+        text-shadow: 0 1px 0 @black;
+    }
+    .divider {
+        color: @grayLight;
+    }
+    .active a {
+        color: @grayDark;
+    }
+
+    // border-top: 0;
+    margin-top: 0;
+}
+
+// ------------
+// LOGIN BUTTON
+// ------------
+
+div.login {
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    background: url('/static/img/facebook-login-button.png') no-repeat;
+    height: 22px;
+    width: 154px;
+}
+
+
+
+
+
+
