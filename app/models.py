@@ -143,10 +143,10 @@ class User(db.Model):
         self.date_added = datetime.datetime.utcnow()
 
     def is_trusted(self):
-        return self.role is 'trusted' or self.role is 'admin'
+        return self.role == 'trusted' or self.role == 'admin'
 
     def is_admin(self):
-        return self.role is 'admin'
+        return self.role == 'admin'
 
     @staticmethod
     def get_facebook_id(facebook_id):
