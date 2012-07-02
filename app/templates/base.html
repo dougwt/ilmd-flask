@@ -1,21 +1,167 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
-    <title>ILMD | {{ title }}</title>
-    <link rel="icon" href="data:,">
-    {% block head %}
-    {% endblock %}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>I Love My Dachshund | {{ title }}</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="/static/css/style.css">
+
+    <script src="/static/js/libs/modernizr-2.5.3-respond-1.1.0.min.js"></script>
+  {% block head %}
+  {% endblock %}
 </head>
 <body>
-    {% if current_user %}
-        <div>{{ current_user.name }}</div>
-        <div><a href="/logout">logout</a></div>
-    {% else %}
-        <div><a href="/login">Please login</a></div>
-    {% endif %}
+  <!-- Navbar -->
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a href="#" class="brand">ILMD</a>
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <!-- <a class="brand" href="#">Project name</a> -->
+        <div class="nav-collapse">
+          <ul class="nav">
+            <li{% if page=="home" %} class="active"{% endif %}>
+              <a href="/">Home</a>
+            </li>
+            <li class="dropdown{% if "gallery-" in page %} active{% endif %}">
+              <a href="#"
+                    class="dropdown-toggle"
+                    data-toggle="dropdown">
+                    Gallery
+                    <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li class="nav-header">Sorted by...</li>
+
+                <li{% if page == "gallery-category" %} class="active"{% endif %}>
+                  <a href="#"><i class="icon-list-alt"></i> Category</a>
+                </li>
+
+                <li{% if page == "gallery-recent" %} class="active"{% endif %}>
+                  <a href="#"><i class="icon-calendar"></i> Recent</a>
+                </li>
+
+                <li{% if page == "gallery-likes" %} class="active"{% endif %}>
+                  <a href="#"><i class="icon-thumbs-up"></i> Likes</a>
+                </li>
+
+              </ul>
+            </li>
+            <li{% if page == "random-image" %} class="active"{% endif %}><a href="#">Random Image</a></li>
+            <li{% if page == "about" %} class="active"{% endif %}><a href="#">About</a></li>
+            <li{% if page == "contact" %} class="active"{% endif %}><a href="#">Contact</a></li>
+            <!-- <form class="navbar-search pull-left">
+              <input type="text" class="search-query" placeholder="Search">
+            </form> -->
+            <!-- <li class="divider-vertical"></li> -->
+          </ul>
+
+          <ul class="nav pull-right">
+            <li class="divider-vertical"></li>
+            {% if current_user %}
+              <li class="dropdown{% if "account-" in page %} active{% endif %}">
+                <a href="#"
+                      class="dropdown-toggle"
+                      data-toggle="dropdown">
+                      {% if current_user.admin %}
+                      <span class="badge badge-important">3</span>&nbsp;
+                      {% endif %}
+                      {{ current_user.name }}
+                      <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  {% if current_user.admin %}
+                  <li{% if page=="account-admin" %} class="active"{% endif %}>
+                    <a href="#"><i class="icon-wrench"></i> Admin Panel</a>
+                  </li>
+
+                  <li class="divider"></li>
+                  {% endif %}
+
+                  <li{% if page=="account-profile" %} class="active"{% endif %}>
+                    <a href="#"><i class="icon-user"></i> My Profile</a>
+                  </li>
+
+                  <li{% if page=="account-settings" %} class="active"{% endif %}>
+                    <a href="#"><i class="icon-cog"></i> My Settings</a>
+                  </li>
+
+                  <li>
+                    <a href="/logout"><i class="icon-eject"></i> Logout</a>
+                  </li>
+
+                </ul>
+              </li>
+            {% else %}
+              <li><a href="/login"><div class="login">Login with Facebook</div></a></li>
+              <!-- <div><a href="/login">Please login</a></div> -->
+            {% endif %}
+
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+  </div><!-- navbar -->
+
+  <!-- Header -->
+  <div class="container header">
+    <div class="row">
+      <div class="span12 ashas-fur-bg">
+        <!-- <div class="container">
+          <div class="span8 offset1">
+            <h1>You love your dog.</h1>
+            <h2>So do we.</h2>
+          </div>
+        </div>
+      </div> -->
+    </div>
+  </div>
+
+  <div class="container">
+
+    <!-- Breadcrumb -->
+    <ul class="breadcrumb breadcrumb-nav">
+      {% block breadcrumb %}
+      {% endblock %}
+      <li class="active">{{ title }}</li>
+    </ul>
+
+    <!-- <div class="page-header">
+      <h1>{{ title }}</h1>
+    </div> -->
 
     {% block content %}
+      <div class="span12">
+        <p>Hello!</p>
+      </div>
     {% endblock %}
+
+    <hr>
+
+    <footer>
+      <p>&copy; Company 2012</p>
+    </footer>
+
+  </div> <!-- /container -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/static/js/libs/jquery-1.7.2.min.js"><\/script>')</script>
+
+<script src="/static/js/libs/bootstrap/bootstrap.min.js"></script>
+
+<script src="/static/js/script.js"></script>
+{% block script %}
+{% endblock %}
 </body>
 </html>

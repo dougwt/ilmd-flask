@@ -11,18 +11,27 @@ body {
    Author:
    ========================================================================== */
 
-@bodyBackground: #4c3e4f;
+@base: #4c3e4f;
+@darken1: darken(@base, 5%);
+@darken2: darken(@base, 10%);
+@lighten1: lighten(@base, 15%);
+@lighten2: lighten(@base, 30%);
+
+@accent: #faa834;
+@accent: #b194a1;
+@accent: #ba839f;
+
+@bodyBackground: @base;
 @textColor: #eee;
-@linkColor: #faa834;
+@linkColor: @accent;
 @linkColorHover: darken(@linkColor, 15%);
-@darkAccentColor: darken(@bodyBackground, 6%);
 @dropdownLinkBackgroundHover: #9b7ea1;
+@dropdownLinkBackgroundHover: @linkColor;
 
-// @btnBackground: lighten(@linkColor, 15%);
-// @btnBackgroundHighlight: @linkColor;
 
-// Header
-// -----------------
+// ------
+// HEADER
+// ------
 
 body {
     background-image: url('../img/header-bg-long.gif');
@@ -47,27 +56,38 @@ body {
     // background-position: 20px 0;
 }
 
-// Horizontal Rules
-// ----------------
+
+// ---------------
+// HORIZONTAL RULE
+// ---------------
+
+@ruleColor: @darken1;
 
 hr{
     border-top: 0;
-    border-bottom: 1px solid @darkAccentColor;
+    border-bottom: 1px solid @ruleColor;
 }
 
 .page-header {
-    border-bottom: 1px solid @darkAccentColor;
+    border-bottom: 1px solid @ruleColor;
 }
 
-// Buttons
+
+// -------
+// BUTTONS
 // -------
 
 a.btn {
-    color: @darkAccentColor;
+    color: @darken1;
 }
 
-// Gallery Thumbnails
-// ----------
+// @btnBackground: lighten(@linkColor, 15%);
+// @btnBackgroundHighlight: @linkColor;
+
+
+// ------------------
+// GALLERY THUMBNAILS
+// ------------------
 
 .thumbnails a {
     border-color: #8d7393;
@@ -85,10 +105,12 @@ a.btn {
 
 .well {
     /*color: black;*/
-    background-color: @darkAccentColor;
+    background-color: @darken1;
     margin-bottom: 0;
 }
 
+
+// -----------
 // BREADCRUMBS
 // -----------
 

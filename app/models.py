@@ -120,7 +120,7 @@ class User(db.Model):
     email = db.Column(db.String(120), index=True, unique=True)
     description = db.Column(db.String(300))
     access_token = db.Column(db.String(300), unique=True, nullable=False)  # fb OAUTH access token
-    admin = db.Column(db.Boolean, default=False)
+    role = db.Column(db.Enum('user', 'trusted', 'admin'))
     date_added = db.Column(db.DateTime)
     comments = db.relationship('Comment', backref='user', lazy='dynamic')
     likes = db.relationship('Like', backref='user', lazy='dynamic')
@@ -133,14 +133,20 @@ class User(db.Model):
     # profile_url = db.StringProperty(required=True)
     # access_token = db.StringProperty(required=True)  #fb OAUTH access token
 
-    def __init__(self, facebook_id, name, email, description, access_token, admin=False):
+    def __init__(self, facebook_id, name, email, description, access_token, role='user'):
         self.facebook_id = facebook_id
         self.name = name
         self.email = email
         self.description = description
         self.access_token = access_token
-        self.admin = admin
+        self.role = role
         self.date_added = datetime.datetime.utcnow()
+
+    def trusted(self):
+        return self.role is 'trusted' or self.role is 'admin'
+
+    def admin(self):
+        return self.role is 'admin'
 
     @staticmethod
     def get_facebook_id(facebook_id):

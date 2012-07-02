@@ -1,6 +1,55 @@
 {% extends 'base.html' %}
+{% set page = "home" %}
 
 {% block content %}
+
+<!-- Example row of columns -->
+    <div class="row">
+      <div class="span8">
+        <h2>Heading</h2>
+          <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Etiam porta sem malesuada magna mollis euismod. Etiam porta sem malesuada magna mollis euismod. Etiam porta sem malesuada magna mollis euismod. Donec id elit non mi porta gravida at eget metus. Donec ullamcorper nulla non metus <a href="#">auctor fringilla</a>.</p>
+
+          <p>Etiam porta sem malesuada magna mollis euismod. Curabitur blandit tempus porttitor. Cras mattis consectetur purus sit amet fermentum. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui.</p>
+      </div>
+      <div class="span4">
+        <div class="well">
+          <h3>Heading</h3>
+          <p>Vestibulum id ligula porta felis euismod semper. Donec id elit non mi porta gravida at eget metus. Cum sociis natoque penatibus et magnis dis parturient montes, <a href="#">nascetur ridiculus mus</a>.</p>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <!-- Example gallery images -->
+    <div class="row gallery-header">
+      <div class="span12">
+        <h2>Latest Images</h2>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="span12">
+        <ul class="thumbnails">
+
+          {% for i in range(6 * 2) %}
+            <li class="span2">
+              <a href="#" class="thumbnail">
+                <img src="http://placehold.it/180x180" alt="">
+              </a>
+            </li>
+          {% endfor %}
+
+        </ul>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="span3 offset9">
+        <a href="#" class="btn btn-large pull-right">Show me more &raquo;</a>
+      </div>
+    </div>
+
     {% for image in images %}
         {{ image|safe }}
     {% endfor %}
