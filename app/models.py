@@ -142,10 +142,10 @@ class User(db.Model):
         self.role = role
         self.date_added = datetime.datetime.utcnow()
 
-    def trusted(self):
+    def is_trusted(self):
         return self.role is 'trusted' or self.role is 'admin'
 
-    def admin(self):
+    def is_admin(self):
         return self.role is 'admin'
 
     @staticmethod

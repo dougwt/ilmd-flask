@@ -53,6 +53,6 @@ def store_user(profile, access_token):
                            email=email,
                            description=None,
                            access_token=access_token,
-                           admin=False)
+                           role='user')
         db.session.add(user)
     db.session.commit()

@@ -75,14 +75,14 @@
                 <a href="#"
                       class="dropdown-toggle"
                       data-toggle="dropdown">
-                      {% if current_user.admin %}
+                      {% if current_user.is_admin() %}
                       <span class="badge badge-important">3</span>&nbsp;
                       {% endif %}
                       {{ current_user.name }}
                       <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
-                  {% if current_user.admin %}
+                  {% if current_user.is_admin() %}
                   <li{% if page=="account-admin" %} class="active"{% endif %}>
                     <a href="#"><i class="icon-wrench"></i> Admin Panel</a>
                   </li>
