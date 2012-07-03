@@ -1,4 +1,4 @@
-from flask import Flask, session
+from flask import Flask, session, render_template
 from flask.views import MethodView
 from flask.ext.sqlalchemy import SQLAlchemy
 from flaskext.oauth import OAuth
@@ -21,9 +21,9 @@ facebook = oauth.remote_app('facebook',
 )
 
 
-# @app.errorhandler(404)
-# def not_found(error):
-#     return render_template('404.html'), 404
+@app.errorhandler(404)
+def not_found(error):
+    return render_template('404.html'), 404
 
 
 class View(MethodView):

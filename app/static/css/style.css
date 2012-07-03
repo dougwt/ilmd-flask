@@ -7487,3 +7487,6 @@ div.login {
   height: 22px;
   width: 154px;
 }
+.align-right {
+  text-align: right;
+}

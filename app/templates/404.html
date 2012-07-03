@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% set page = 'error' %}
+{% set title = 'Error 404 - File Not Found' %}
+
+{% block content %}
+<div class="row">
+  <div class="span4 align-right">
+    <img src="/static/img/ashas-cutout.png" alt="" height="231" width="218">
+  </div>
+  <div class="span8">
+    <h1>Uh oh!</h1>
+    <h3>The page you are looking for does not exist.</h3>
+    <p>Perhaps you buried it somewhere else?</p>
+    <p>&nbsp;</p>
+    <a href="/" class="btn">Return to the homepage &raquo;</a>
+  </div>
+</div>
+{% endblock %}
